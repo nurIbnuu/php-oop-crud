@@ -2,6 +2,7 @@
 
   class Database
   {
+
     // Property
     public  $hostname = 'mysql_database',
             $username = 'root',
@@ -18,6 +19,7 @@
       mysqli_select_db($this->connect, $this->database);
     }
 
+
     // Method Wajib
     public function tampilData()
     {
@@ -26,5 +28,25 @@
       $rows = mysqli_fetch_all($data, MYSQLI_ASSOC);
 
       return $rows;
+    }
+
+    public function tambahData(string $nama, string $alamat, string $no_hp)
+    {
+      mysqli_query($this->connect, "INSERT INTO user VALUES (NULL, '$nama', '$alamat', '$no_hp')");
+    }
+
+    public function ubahData($id)
+    {
+      $data = mysqli_query($this->connect, "SELECT * FROM user WHERE id = '$id'");
+
+      $rows = mysqli_fetch_all($data, MYSQLI_ASSOC);
+
+      return $rows;
+    }
+    
+    public function ubahData1($id, $nama, $alamat, $no_hp)
+    {
+      mysqli_query($this->connect, "UPDATE user
+      SET nama = '$nama', alamat = '$alamat', no_hp = '$no_hp' WHERE id = '$id'");
     }
   }
