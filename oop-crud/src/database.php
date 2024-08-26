@@ -21,7 +21,7 @@
 
 
     // Method Wajib
-    public function tampilData()
+    public function tampilData() : array
     {
       $data = mysqli_query($this->connect, 'SELECT * FROM user');
 
@@ -30,12 +30,12 @@
       return $rows;
     }
 
-    public function tambahData(string $nama, string $alamat, string $no_hp)
+    public function tambahData(string $nama, string $alamat, string $no_hp) : void
     {
       mysqli_query($this->connect, "INSERT INTO user VALUES (NULL, '$nama', '$alamat', '$no_hp')");
     }
 
-    public function ubahData($id)
+    public function menampilkanUbahData($id) : array
     {
       $data = mysqli_query($this->connect, "SELECT * FROM user WHERE id = '$id'");
 
@@ -44,9 +44,14 @@
       return $rows;
     }
     
-    public function ubahData1($id, $nama, $alamat, $no_hp)
+    public function ubahData($id, $nama, $alamat, $no_hp) : void
     {
       mysqli_query($this->connect, "UPDATE user
       SET nama = '$nama', alamat = '$alamat', no_hp = '$no_hp' WHERE id = '$id'");
+    }
+
+    public function hapusData($id) : void
+    {
+      mysqli_query($this->connect, "DELETE FROM user WHERE id = '$id'");
     }
   }

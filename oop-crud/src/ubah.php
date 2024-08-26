@@ -1,10 +1,9 @@
 <?php
-
   include 'database.php';
 
   $db = new Database();
 
-  $data_data = $db->ubahData($_GET['id']);
+  $data_data = $db->menampilkanUbahData($_GET['id']);
 ?>
 
 <!DOCTYPE html>

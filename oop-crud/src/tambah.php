@@ -29,7 +29,6 @@
           <h2>Halaman Tambah Data</h2>
         </div>
         <div class="col text-end">
-          <!-- Tambah Data -->
           <a class="btn btn-danger" href="index.php" role="button">
             <i class="bi bi-backspace"></i>
             Kembali

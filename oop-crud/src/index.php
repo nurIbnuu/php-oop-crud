@@ -3,6 +3,8 @@
   include 'database.php';
 
   $db = new Database();
+
+  $data_data = $db->tampilData();
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +64,7 @@
           <tbody>
             <?php
               $i = 1;
-              foreach($db->tampilData() as $data) :
+              foreach($data_data as $data) :
             ?>
               <tr>
                 <td><?= $i; ?></td>
@@ -75,7 +77,7 @@
                     Ubah
                   </a>
 
-                  <a class="btn btn-danger btn-sm" href="" role="button">
+                  <a class="btn btn-danger btn-sm" href="proses.php?id=<?= $data['id']; ?>&aksi=hapus" role="button">
                     <i class="bi bi-trash"></i>
                     Hapus
                   </a>

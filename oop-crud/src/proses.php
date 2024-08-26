@@ -13,7 +13,13 @@
   }
   elseif($aksi == 'ubah')
   {
-    $db->ubahData1($_POST['id'], $_POST['nama'], $_POST['alamat'], $_POST['no_hp']);
+    $db->ubahData($_POST['id'], $_POST['nama'], $_POST['alamat'], $_POST['no_hp']);
+
+    header('Location: index.php');
+  }
+  elseif($aksi == 'hapus')
+  {
+    $db->hapusData($_GET['id']);
 
     header('Location: index.php');
   }
